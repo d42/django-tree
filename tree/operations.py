@@ -60,7 +60,7 @@ class CreateTreeTrigger(Operation, GetModelMixin, CheckDatabaseMixin):
         self.model_lookup = model_lookup
         self.path_field = path_field
         self.parent_field = parent_field
-        if path_field in order_by:
+        if order_by and path_field in order_by:
             raise ImproperlyConfigured(
                 'Cannot use `%s` in `CreateTreeTrigger.order_by`.'
                 % path_field)
